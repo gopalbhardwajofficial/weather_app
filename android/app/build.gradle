@@ -1,0 +1,38 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.gopal.weather.bhardwaj_weather"
+    compileSdk = 34  // Update to SDK version 34 as required by plugins
+    ndkVersion = "25.1.8937393"  // Ensure the correct NDK version as previously discussed
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.gopal.weather.bhardwaj_weather"
+        minSdk = 21  // Replace as needed, keeping minimum SDK level
+        targetSdk = 34  // Update to SDK version 34 to align with compileSdk
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
