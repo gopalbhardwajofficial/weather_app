@@ -1,9 +1,16 @@
-import 'package:bhardwaj_weather/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:bhardwaj_weather/screens/home_screen.dart';
-import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:flutter/services.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -12,14 +19,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugShowCheckedModeBanner: false;
     return MaterialApp(
-      title: 'GB Weather App',
+      title: 'Bhardwaj Weather',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.transparent,
       ),
-      home: const HomePage(),
+      home: const SplashScreen(),
     );
   }
 }
